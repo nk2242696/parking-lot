@@ -1,21 +1,18 @@
-/**
- * 
- */
 package io.gojek.parkinglot.model.strategy;
 
 import java.util.TreeSet;
 
 /**
- * @author vaibhav
+ * @author nkumar
  *
  */
 public class NearestFirstParkingStrategy implements ParkingStrategy
 {
-	private TreeSet<Integer> freeSlots;
+	private final TreeSet<Integer> freeSlots;
 	
 	public NearestFirstParkingStrategy()
 	{
-		freeSlots = new TreeSet<Integer>();
+		freeSlots = new TreeSet<>();
 	}
 	
 	@Override

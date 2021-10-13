@@ -1,6 +1,3 @@
-/**
- * 
- */
 package io.gojek.parkinglot.dao.impl;
 
 import java.util.HashMap;
@@ -16,7 +13,7 @@ import io.gojek.parkinglot.model.strategy.ParkingStrategy;
 /**
  * This class is a singleton class to manage the data of parking system
  * 
- * @author vaibhav
+ * @author nkumar
  * @param <T>
  */
 public class MemoryParkingManager<T extends Vehicle> implements ParkingDataManager<T>
@@ -24,8 +21,9 @@ public class MemoryParkingManager<T extends Vehicle> implements ParkingDataManag
 	private Map<Integer, ParkingLevelDataManager<T>> levelParkingMap;
 	
 	@SuppressWarnings("rawtypes")
-	private static MemoryParkingManager instance = null;
-	
+	private static volatile MemoryParkingManager instance = null;
+	private List<ParkingStrategy> parkingStrategies;
+
 	@SuppressWarnings("unchecked")
 	public static <T extends Vehicle> MemoryParkingManager<T> getInstance(List<Integer> parkingLevels,
 			List<Integer> capacityList, List<ParkingStrategy> parkingStrategies)
@@ -47,8 +45,8 @@ public class MemoryParkingManager<T extends Vehicle> implements ParkingDataManag
 	private MemoryParkingManager(List<Integer> parkingLevels, List<Integer> capacityList,
 			List<ParkingStrategy> parkingStrategies)
 	{
-		if (levelParkingMap == null)
-			levelParkingMap = new HashMap<>();
+		this.parkingStrategies = parkingStrategies;
+		levelParkingMap = new HashMap<>();
 		for (int i = 0; i < parkingLevels.size(); i++)
 		{
 			levelParkingMap.put(parkingLevels.get(i), MemoryParkingLevelManager.getInstance(parkingLevels.get(i),

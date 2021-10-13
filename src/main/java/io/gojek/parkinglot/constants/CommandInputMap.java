@@ -1,18 +1,15 @@
-/**
- * 
- */
 package io.gojek.parkinglot.constants;
 
 import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @author vaibhav
+ * @author nkumar
  *
  */
-public class CommandInputMap
+public final class CommandInputMap
 {
-	private static volatile Map<String, Integer> commandsParameterMap = new HashMap<String, Integer>();
+	private static final Map<String, Integer> commandsParameterMap = new HashMap<>();
 	
 	static
 	{
@@ -24,22 +21,13 @@ public class CommandInputMap
 		commandsParameterMap.put(Constants.SLOTS_NUMBER_FOR_CARS_WITH_COLOR, 1);
 		commandsParameterMap.put(Constants.SLOTS_NUMBER_FOR_REG_NUMBER, 1);
 	}
-	
-	/**
-	 * @return the commandsParameterMap
-	 */
+
+	private CommandInputMap() {
+	}
+
 	public static Map<String, Integer> getCommandsParameterMap()
 	{
 		return commandsParameterMap;
-	}
-	
-	/**
-	 * @param commandsParameterMap
-	 *            the commandsParameterMap to set
-	 */
-	public static void addCommand(String command, int parameterCount)
-	{
-		commandsParameterMap.put(command, parameterCount);
 	}
 	
 }

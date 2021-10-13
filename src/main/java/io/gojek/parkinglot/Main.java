@@ -23,10 +23,9 @@ public class Main
 		AbstractProcessor processor = new RequestProcessor();
 		processor.setService(new ParkingServiceImpl());
 		BufferedReader bufferReader = null;
-		String input = null;
+		String input;
 		try
 		{
-			System.out.println("\n\n\n\n\n");
 			System.out.println("===================================================================");
 			System.out.println("===================      GOJEK PARKING LOT     ====================");
 			System.out.println("===================================================================");
@@ -51,14 +50,7 @@ public class Main
 							{
 								if (processor.validate(input))
 								{
-									try
-									{
-										processor.execute(input.trim());
-									}
-									catch (Exception e)
-									{
-										System.out.println(e.getMessage());
-									}
+									processor.execute(input.trim());
 								}
 								else
 								{
@@ -85,14 +77,7 @@ public class Main
 							input = input.trim();
 							if (processor.validate(input))
 							{
-								try
-								{
-									processor.execute(input);
-								}
-								catch (Exception e)
-								{
-									System.out.println(e.getMessage());
-								}
+								processor.execute(input);
 							}
 							else
 								System.out.println("Incorrect Command Found at line: " + lineNo + " ,Input: " + input);
@@ -120,36 +105,29 @@ public class Main
 			{
 				if (bufferReader != null)
 					bufferReader.close();
-			}
-			catch (IOException e)
-			{
+			} catch (IOException e) {
+				e.printStackTrace();
 			}
 		}
 	}
 	
 	private static void printUsage()
 	{
-		StringBuffer buffer = new StringBuffer();
-		buffer = buffer.append(
-				"--------------Please Enter one of the below commands. {variable} to be replaced -----------------------")
-				.append("\n");
-		buffer = buffer.append("A) For creating parking lot of size n               ---> create_parking_lot {capacity}")
-				.append("\n");
-		buffer = buffer
-				.append("B) To park a car                                    ---> park <<car_number>> {car_clour}")
-				.append("\n");
-		buffer = buffer.append("C) Remove(Unpark) car from parking                  ---> leave {slot_number}")
-				.append("\n");
-		buffer = buffer.append("D) Print status of parking slot                     ---> status").append("\n");
-		buffer = buffer.append(
-				"E) Get cars registration no for the given car color ---> registration_numbers_for_cars_with_color {car_color}")
-				.append("\n");
-		buffer = buffer.append(
-				"F) Get slot numbers for the given car color         ---> slot_numbers_for_cars_with_color {car_color}")
-				.append("\n");
-		buffer = buffer.append(
-				"G) Get slot number for the given car number         ---> slot_number_for_registration_number {car_number}")
-				.append("\n");
-		System.out.println(buffer.toString());
+		String buffer = "--------------Please Enter one of the below commands. {variable} to be replaced -----------------------" +
+				"\n" +
+				"A) For creating parking lot of size n               ---> create_parking_lot {capacity}" +
+				"\n" +
+				"B) To park a car                                    ---> park <<car_number>> {car_clour}" +
+				"\n" +
+				"C) Remove(Unpark) car from parking                  ---> leave {slot_number}" +
+				"\n" +
+				"D) Print status of parking slot                     ---> status" + "\n" +
+				"E) Get cars registration no for the given car color ---> registration_numbers_for_cars_with_color {car_color}" +
+				"\n" +
+				"F) Get slot numbers for the given car color         ---> slot_numbers_for_cars_with_color {car_color}" +
+				"\n" +
+				"G) Get slot number for the given car number         ---> slot_number_for_registration_number {car_number}" +
+				"\n";
+		System.out.println(buffer);
 	}
 }

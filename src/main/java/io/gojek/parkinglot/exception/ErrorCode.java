@@ -1,10 +1,7 @@
-/**
- * 
- */
 package io.gojek.parkinglot.exception;
 
 /**
- * @author vaibhav
+ * @author nkumar
  *
  */
 public enum ErrorCode
@@ -13,19 +10,13 @@ public enum ErrorCode
 			"Sorry, Car Parking Does not Exist"), INVALID_VALUE("{variable} value is incorrect"), INVALID_FILE(
 					"Invalid File"), PROCESSING_ERROR("Processing Error "), INVALID_REQUEST("Invalid Request");
 	
-	private String message = "";
-	
-	/**
-	 * @param value
-	 */
-	private ErrorCode(String message)
+	public final String message;
+
+	ErrorCode(String message)
 	{
 		this.message = message;
 	}
-	
-	/**
-	 * @return String
-	 */
+
 	public String getMessage()
 	{
 		return message;

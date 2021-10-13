@@ -1,6 +1,3 @@
-/**
- * 
- */
 package io.gojek.parkinglot.model;
 
 import java.io.Externalizable;
@@ -9,20 +6,20 @@ import java.io.ObjectInput;
 import java.io.ObjectOutput;
 
 /**
- * @author vaibhav
+ * @author nkumar
  *
  */
-public abstract class Vehicle implements Externalizable
+ public abstract class Vehicle implements Externalizable
 {
-	private String	registrationNo	= null;
-	private String	color			= null;
+	private String	registrationNo;
+	private String	color;
 	
-	public Vehicle(String registrationNo, String color)
+	protected Vehicle(String registrationNo, String color)
 	{
 		this.registrationNo = registrationNo;
 		this.color = color;
 	}
-	
+
 	@Override
 	public String toString()
 	{

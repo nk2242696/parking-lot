@@ -1,17 +1,12 @@
-/**
- * 
- */
 package io.gojek.parkinglot.model.strategy;
 
 /**
- * @author vaibhav
+ * @author nkumar
  *
  */
 public interface ParkingStrategy
 {
-	public void add(int i);
-	
-	public int getSlot();
-	
-	public void removeSlot(int slot);
+	 void add(int i);
+	 int getSlot();
+	 void removeSlot(int slot);
 }

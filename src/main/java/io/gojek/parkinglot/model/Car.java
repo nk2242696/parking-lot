@@ -1,6 +1,3 @@
-/**
- * 
- */
 package io.gojek.parkinglot.model;
 
 import java.io.IOException;
@@ -8,7 +5,7 @@ import java.io.ObjectInput;
 import java.io.ObjectOutput;
 
 /**
- * @author vaibhav
+ * @author nkumar
  *
  */
 public class Car extends Vehicle
@@ -17,6 +14,10 @@ public class Car extends Vehicle
 	public Car(String registrationNo, String color)
 	{
 		super(registrationNo, color);
+	}
+
+	public Car(){
+		super("","");
 	}
 	
 	@Override

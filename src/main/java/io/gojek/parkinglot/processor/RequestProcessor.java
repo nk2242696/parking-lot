@@ -1,6 +1,3 @@
-/**
- * 
- */
 package io.gojek.parkinglot.processor;
 
 import io.gojek.parkinglot.constants.Constants;
@@ -12,16 +9,11 @@ import io.gojek.parkinglot.service.ParkingService;
 
 /**
  * 
- * @author vaibhav
+ * @author nkumar
  */
 public class RequestProcessor implements AbstractProcessor
 {
 	private ParkingService parkingService;
-	
-	public void setParkingService(ParkingService parkingService) throws ParkingException
-	{
-		this.parkingService = parkingService;
-	}
 	
 	@Override
 	public void execute(String input) throws ParkingException

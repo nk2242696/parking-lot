@@ -1,6 +1,3 @@
-/**
- * 
- */
 package io.gojek.parkinglot.processor;
 
 import io.gojek.parkinglot.constants.CommandInputMap;
@@ -8,16 +5,16 @@ import io.gojek.parkinglot.exception.ParkingException;
 import io.gojek.parkinglot.service.AbstractService;
 
 /**
- * @author vaibhav
+ * @author nkumar
  *
  */
 public interface AbstractProcessor
 {
-	public void setService(AbstractService service);
+	 void setService(AbstractService service);
 	
-	public void execute(String action) throws ParkingException;
+	 void execute(String action) throws ParkingException;
 	
-	public default boolean validate(String inputString)
+	 default boolean validate(String inputString)
 	{
 		// Split the input string to validate command and input value
 		boolean valid = true;
